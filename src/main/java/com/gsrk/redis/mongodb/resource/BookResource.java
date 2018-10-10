@@ -23,13 +23,13 @@ public class BookResource {
 	private BookService bookService;
 	
 	@PostMapping(value="/book")
-	public void saveBook(@RequestBody Book book) {
-		bookService.saveBook(book);
+	public Book saveBook(@RequestBody Book book) {
+		return bookService.saveBook(book);
 	}
 	
 	@PutMapping(value="/book")
-	public void updateBook(@RequestBody Book book) {
-		bookService.saveBook(book);
+	public Book updateBook(@RequestBody Book book) {
+		return bookService.saveBook(book);
 	}
 	
 	@DeleteMapping(value="/book")

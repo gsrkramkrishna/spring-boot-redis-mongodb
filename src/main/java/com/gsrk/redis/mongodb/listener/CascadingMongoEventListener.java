@@ -12,7 +12,8 @@ import org.springframework.util.ReflectionUtils;
 
 import com.gsrk.redis.mongodb.annotation.CascadeSave;
 
-public class CascadingMongoEventListener extends AbstractMongoEventListener {
+
+public class CascadingMongoEventListener extends AbstractMongoEventListener<Object> {
 	@Autowired
 	private MongoOperations mongoOperations;
 

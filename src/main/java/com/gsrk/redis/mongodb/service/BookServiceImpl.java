@@ -17,25 +17,25 @@ public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookRepository bookRepository;
 
-	@Cacheable(value = "books", key = "#id")
+	@Cacheable(value = "books", key = "#book.id")
 	public List<Book> findAllBooks() {
 		// TODO Auto-generated method stub
 		return bookRepository.findAll();
 	}
 	
-	@Cacheable(value = "books", key = "#id")
+	@Cacheable(value = "books", key = "#book.id")
 	public Book findById(String id) {
 		// TODO Auto-generated method stub
 		return bookRepository.findOne(id);
 	}
 
 	@CachePut(value = "books", key = "#book.id")
-	public void saveBook(Book book) {
+	public Book saveBook(Book book) {
 		// TODO Auto-generated method stub
-		bookRepository.save(book);
+		return bookRepository.save(book);
 	}
 	
-	@CacheEvict(value = "books", allEntries=true)
+	@CacheEvict(value = "books", key = "#book.id")
 	public void deleteBook(Book book) {
 		// TODO Auto-generated method stub
 		bookRepository.delete(book);

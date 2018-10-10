@@ -26,7 +26,7 @@ public class Book implements Serializable{
 
     private int pageCount;
     
-    @DBRef
+    //@DBRef
     @CascadeSave
     private Author author;
 
